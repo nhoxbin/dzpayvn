@@ -1,0 +1,165 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+/****** LOGIN MODAL ******/
+input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(3em + 2px);
+    margin: 0 0 1em;
+    padding: 6px;
+    padding-left: 12px;
+    border: 0.5px solid #bababa;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+input[type="text"]:focus {
+    border-color: #00bafa;
+}
+input[type="text"]:focus + label[placeholder]:before {
+    color: #00bafa;
+}
+input[type="text"]:focus + label[placeholder]:before,
+input[type="text"]:valid + label[placeholder]:before {
+    transition-duration: .2s;
+    transform: translate(0, -1.6em) scale(0.9, 0.9);
+    /*font-weight: bold;*/
+}
+input[type="text"]:valid {
+    border-color: green;
+}
+input[type="text"]:valid + label[placeholder]:before {
+    color: green;
+}
+input[type="text"]:invalid + label[placeholder][alt]:before {
+    content: attr(alt);
+}
+input[type="text"] + label[placeholder] {
+    display: block;
+    pointer-events: none;
+    line-height: 1.25em;
+    margin-top: calc(-3em - 9px);
+    margin-bottom: calc((3em - 1em) + 2px);
+    font-weight: 400;
+}
+input[type="text"] + label[placeholder]:before {
+    content: attr(placeholder);
+    display: inline-block;
+    margin: 0 calc(0.5em + 2px);
+    padding: 0 2px;
+    color: #7d7d7d;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*input password*/
+
+input[type="password"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(3em + 2px);
+    margin: 0 0 1em;
+    padding: 6px;
+    padding-left: 12px;
+    border: 0.5px solid #bababa;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type="password"]:focus {
+    border-color: #00bafa;
+}
+input[type="password"]:focus + label[placeholder]:before {
+    color: #00bafa;
+}
+input[type="password"]:focus + label[placeholder]:before,
+input[type="password"]:valid + label[placeholder]:before {
+    transition-duration: .2s;
+    transform: translate(0, -1.6em) scale(0.9, 0.9);
+    /*font-weight: bold;*/
+}
+input[type="password"]:valid {
+    border-color: green;
+}
+input[type="password"]:valid + label[placeholder]:before {
+    color: green;
+}
+input[type="password"]:invalid + label[placeholder][alt]:before {
+    content: attr(alt);
+}
+input[type="password"] + label[placeholder] {
+    display: block;
+    pointer-events: none;
+    line-height: 1.25em;
+    margin-top: calc(-3em - 9px);
+    margin-bottom: calc((3em - 1em) + 2px);
+    font-weight: 400;
+}
+input[type="password"] + label[placeholder]:before {
+    content: attr(placeholder);
+    display: inline-block;
+    margin: 0 calc(0.5em + 2px);
+    padding: 0 2px;
+    color: #7d7d7d;
+    white-space: nowrap;
+    transition: 0.3s ease-in-out;
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.loginmodal-submit {
+    /* border: 1px solid #3079ed; */
+    border: 0px;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #2ab354;
+    padding: 17px;
+    width:100% !important;
+    font-family: roboto;
+    font-size: 14px;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#4d90fe), to(#4787ed)); */
+}
+.log-icon {
+    opacity: 0.5;
+}
+.login-register a{
+    color: #5A738E;
+    text-decoration: none;
+}
+.reset_pass{
+    padding-top: 10px;
+}
+.login-help {
+    font-size: 12px;
+    text-align: center;
+    padding-top: 20px;
+    clear: both;
+}
+.login-register-link {
+    color: #2ab354;
+}
+.login-help>div:first-child{
+    line-height: 28px !important;
+}
+.payment-body{
+    display: block !important;
+}
+.conten_login{
+    padding-top: 50px;
+}

@@ -1,0 +1,117 @@
+.tab-content {
+	padding: 10px 20px 0 20px;
+}
+
+.nav-tabs {
+	margin-top: 15px;
+}
+
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover {
+	border-top: 2px solid #4492da;
+}
+
+.input-block {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.input-block:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.custom-select {
+	height: calc(3em + 2px);
+    margin: 0 0 1em;
+    padding: 6px;
+    padding-left: 12px;
+    border: 0.5px solid #bababa;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    color: #7d7d7d;
+}
+
+.padding-right-10 {
+	padding-right: 10px;
+}
+.padding-left-10 {
+	padding-left: 10px;
+}
+
+.register-btn {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.error {
+	border-color: red !important;
+}
+
+span.error {
+	color: red;
+}
+
+.small-loading-icon {
+    font-size: 25px;
+}
+.marginTop20 {
+    margin-top: 20px;
+}
+.modal-dialog {
+    width: 80% !important;
+    margin: 13vh auto;
+}
+.modal {
+    z-index: 10000;
+}
+.modal-content {
+    max-height: 70%;
+    overflow-y: scroll;
+}
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+}
+.modal-body .checkbox {
+    margin-bottom: 20px;
+}
+
+#loading-icon {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 99999;
+    text-align: center;
+    display: none;
+    font-size: 3em;
+}
+
+#loading-icon > i {
+	margin-top: 40vh;
+}
+
+input.error:valid + label[placeholder]:before,
+input.error:focus + label[placeholder]:before {
+	color: red;
+}
+
+@media screen and (max-width: 386px) {
+	.g-recaptcha {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+}
+
+@media screen and (max-width: 377px) {
+	.g-recaptcha {
+		transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;
+	}
+}
