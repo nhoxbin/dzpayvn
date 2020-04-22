@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        $this->mapLinkRoutes();
+        // 
     }
 
     /**
@@ -69,12 +69,5 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
-    }
-
-    protected function mapLinkRoutes()
-    {
-        Route::domain('link.' . env('SESSION_DOMAIN'))
-             ->namespace($this->namespace)
-             ->group(base_path('routes/link.php'));
     }
 }

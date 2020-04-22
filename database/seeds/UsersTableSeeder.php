@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Link;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,12 +13,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'cash' => 100000,
-            'email' => Str::random(10).'@gmail.com',
-            'phone' => '0365664356',
-            'password' => bcrypt('password'),
-        ]);
+        factory(User::class, 5)->create()->each(function($u) {
+        	$u->links()->saveMany(
+        		factory(Link::class, rand(5, 10))->make()
+        	);
+        });
     }
 }

@@ -119,6 +119,10 @@ Route::group(['middleware' => 'auth'], function() {
         'only' => ['create', 'store']
     ]);
 
+    Route::resource('link', 'LinkController', [
+        'only' => ['index', 'create', 'store', 'show']
+    ]);
+
     // mua
     Route::group([
         'as' => 'game.',
