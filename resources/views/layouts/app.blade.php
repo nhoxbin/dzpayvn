@@ -36,7 +36,7 @@
         <div class="payment-container container no-padding">
             <div class="payment-header sticky">
                 <div class="pull-left">
-                    <a href="/">
+                    <a href="{{ env('APP_URL', null) }}">
                         <img src="https://i.imgur.com/xJmFg7T.png" alt="logo">
                     </a>
                 </div>

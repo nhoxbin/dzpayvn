@@ -54,6 +54,10 @@
             <img src="https://i.imgur.com/3xUbehh.png">
             <p>Bắn Tiền TKC Và Nạp Cước ( 3 Nhà Mạng )</p>
 	    </a>
+	    <a href="{{ route('url.create') }}" class="function-button no-padding shadow blockIP">
+            <img src="https://i.imgur.com/3xUbehh.png">
+            <p>Link rút gọn</p>
+	    </a>
 		{{-- @foreach($games as $game)
     	    <a href="{{ route('game.buy.create', $game['id']) }}" class="function-button no-padding shadow {{ $loop->iteration%3 === 0 ? 'function-button-no-margin' : '' }} blockIP">
 	            <img src="{{ asset($game['picture']) }}">

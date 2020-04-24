@@ -1,0 +1,148 @@
+@media (max-width: 420px) {
+    .btn_smit__ .btn {
+        padding: 6px 15px;
+    }
+
+}
+@media (max-width: 550px) {
+    .change_google {
+        left: 4% !important;
+    }
+    .change_Pass_st {
+        left: 8% !important;
+    }
+}
+@media (max-width: 568px) {
+    .hidden-md-web ul li:after {
+        left: 49px !important;
+        width: 17px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    #btn_sm_wr {
+        width: 92% !important;
+    }
+    .info_user{
+        width: 100% !important;
+    }
+    .menu_1024{
+        top:0 !important;
+    }
+	.list_amount .amount_df{
+        width: 48% !important;
+        margin-right: 5px !important;
+	}
+    .bpm_lk{
+        width: 50%;
+        float: left;
+        padding: 15px ;
+
+    }
+    .list_bank__{
+        width: 33.3333333% !important;
+    }
+    .m_body{
+        padding: 0px !important;
+    }
+
+    .charge_{
+        color: #00bafa !important;
+        position: relative;
+        left: 30%;
+    }
+    .change_Pass_st{
+        left: 20% !important;
+    }
+    .change_google{
+        left: 17% !important;
+    }
+
+    .conten_banner{
+        top: 19% !important;
+        left: 20px !important;
+    }
+    .payment-header{
+        border-radius: unset !important;
+    }
+    .footer_wapper{
+        margin-bottom: 0px !important;
+        border-radius: 0px !important;
+    }
+    .box{
+        border-radius: 0px !important;
+    }
+    .m_scoll_menu_y{
+        overflow-y: scroll ;
+    }
+    .identify_account {
+        width: 30% !important;
+        margin-left: 43px !important;
+    }
+    .bacK_icon {
+        width: 7%;
+    }
+    .order-checked{
+        margin-top: 0px !important;
+    }
+    .hidden_web{
+        display: block !important;
+    }
+    .amount_txn div {
+        width: 98% !important;
+        text-align: right !important;
+    }
+    .btn_smit__{
+        width: 92% !important;
+    }
+
+    .input-card-box{
+        padding-top:8px !important;
+    }
+    .card-bank__active,.card-bank__active,.card_bank,.card_bank_active,.card-bank{
+        background-size: 100% 100% !important;
+    }
+
+    .hidden-md-web ul li{
+        width: 20% !important;
+    }
+    .hidden-md-web ul li:after {
+        left: 60px !important;
+        width: 22px !important;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .btn_smit__ {
+        background-color: #f6f6f6;
+    }
+}
+
+@media (min-width: 768px) {
+    .f-fr ng-scope{
+        display: none;
+    }
+    .btn_ft{
+        bottom: 20px !important;
+    }
+    .hidden-md-web{
+        display: none !important;
+    }
+    .btn_smit__ {
+        background-color: white;
+    }
+    .height100{
+        height: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+
+
+}
+
+@media (min-width: 1200px) {
+
+}
+

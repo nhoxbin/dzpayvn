@@ -55,6 +55,13 @@
   </li>
 
   <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.link.index') }}">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Danh sách link rút gọn</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.shake.index') }}">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Lắc Xì</span>

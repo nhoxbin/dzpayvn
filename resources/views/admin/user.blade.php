@@ -95,9 +95,6 @@
 
 @push('script')
 <script>
-	@if(session('success'))
-		alert('{{ session('success') }}');
-	@endif
 	var app = new Vue({
 		el: '#app',
 		data: function() {

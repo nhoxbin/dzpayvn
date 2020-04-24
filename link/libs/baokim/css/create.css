@@ -1,0 +1,175 @@
+.nav-tabs {
+    margin-top: 15px;
+}
+
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover {
+    border-top: 2px solid #4492da;
+}
+
+.error {
+    border-color: red !important;
+}
+
+span.error {
+    color: red;
+}
+
+#loading-icon > i {
+    margin-top: 40vh;
+}
+
+input.error:valid + label[placeholder]:before,
+input.error:focus + label[placeholder]:before {
+    color: red;
+}
+
+.input-block {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.input-block:not(:last-child) {
+    margin-bottom: 10px;
+}
+.recharge-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.title-color__white{
+	font-size: 16px;
+	color: white;
+}
+
+.card_game_dash {
+	border-bottom: 1px solid #e2e6e8;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#balance {
+  font-size: 20px;
+}
+
+#surplus{
+  font-size: 14px;
+}
+
+#amount_default {
+    border: 1px solid #fff;
+}
+
+.card-choose__amount{
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 2px;
+    box-shadow: #ccc 0px 0px 5px;
+    cursor: pointer;
+    margin-right: -9px;
+    margin-left: -11px;
+    margin-bottom: 10px;
+    border: 1px solid #d6d9dc00;
+}
+.list_amount{
+    padding: 10px 0px;
+}
+.tab_amount{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.tab_amount label input{
+    opacity: 0;
+    display: none;
+}
+.boder_active{
+    border: 1px solid #007e33 !important;
+}
+
+.total{
+	padding: 10px;
+	border: 1px solid #e2e6e8;
+	border-radius: 5px;
+}
+
+.fa-angle-down {
+    float: right;
+    position: absolute;
+    border-left: 1px solid #e1e1e1;
+    bottom: 5px;
+    padding: 10px 20px;
+    right: 0;
+    color: #9c9c9c;
+}
+
+.icon {
+	cursor: pointer;
+    border: 1px solid #e2e6e8;
+    padding: 6px 7px;
+    border-radius: 13px;
+    font-size: 10px;
+}
+
+.fa-minus {
+    margin-top: 5px;
+    color: #908585;
+    border-color: #908585;
+    margin-right: 20px;
+}
+
+.fa-plus {
+    margin-right: -5px;
+    margin-left: 20px;
+    border-color: #31d3dc;
+    color: #31d3dc;
+}
+
+.logo {
+	background-color: #e6e6e6;
+}
+
+.dropdown-menu {
+    width: 100% !important;
+}
+
+.dropdown {
+	margin-left: -10px;
+	width: 100% !important;
+}
+
+.text-right{
+	float: right;
+}
+
+#payment{
+    padding: 15px;
+    font-size: 15px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+input[type="text"] {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(3em +12px);
+    margin: 0 0 1em;
+    padding: 8px;
+    border: 1px solid #bababa;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .total{
+        padding-bottom: 23px;
+    }
+
+}

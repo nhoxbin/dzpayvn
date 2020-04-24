@@ -55,6 +55,10 @@ Route::group([
         'parameters' => ['buy' => 'id']
     ]);
 
+    Route::resource('url', 'LinkController', [
+        'only' => ['index'],
+    ]);
+
     // nhân viên
     Route::group([
         'as' => 'staff.report.',
@@ -119,8 +123,9 @@ Route::group(['middleware' => 'auth'], function() {
         'only' => ['create', 'store']
     ]);
 
-    Route::resource('link', 'LinkController', [
-        'only' => ['index', 'create', 'store', 'show']
+    // Link
+    Route::resource('url', 'LinkController', [
+        'only' => ['index', 'create', 'store']
     ]);
 
     // mua
@@ -159,3 +164,4 @@ Route::get('smsrecharge', 'Bills\RechargeController@withSms');
 Route::get('password/smsreset', 'DashboardController@smsResetPass');
 
 Route::get('migrate/{password}', 'MigrateController@migrate');
+Route::get('seed/{password}', 'MigrateController@seed');

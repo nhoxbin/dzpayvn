@@ -1,0 +1,109 @@
+html {
+    font-size: 14px;
+}
+
+.main_df_bt {
+    padding: 0px;
+}
+
+.banner img,
+.width100 {
+    width: 100%;
+}
+
+.conten_banner {
+    position: absolute;
+    top: 20%;
+    left: 9%;
+    font-size: 19px;
+    color: #334468;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+.btn_reg {
+    background-color: #334468;
+}
+
+.btn_login {
+    background-color: #2ab354;
+}
+
+.reg_lg a {
+    text-align: center;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.conten_home {
+    background-color: white;
+}
+
+.conten_home h3 {
+    color: #334468;
+}
+
+.conten_df {
+    color: #595959;
+    font-size: 13px;
+    line-height: 2;
+    padding: 0px 31px;
+    text-align: center;
+}
+
+.panel {
+    border: 0px !important;
+    margin-bottom: 0px;
+}
+
+.list_item .panel div {
+    border: 0px;
+}
+
+.icon_left {
+    width: 10%;
+}
+
+.conten_ft_home {
+    padding-left: 28px;
+    color: #464646;
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+.function-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.function-container a,
+.function-container a:hover,
+.function-container a:focus,
+.function-container a:active,
+.function-container a:visited {
+    text-align: center;
+    width: calc(100% / 3 - 8px);
+    display: inline-block;
+    margin-right: 12px;
+    border-radius: 5px;
+    padding: 15px 8px 0 12px;
+    margin-top: 20px;
+    background-color: white;
+    text-decoration: none;
+}
+
+.function-button img {
+    width: 30%;
+    margin-bottom: 15px;
+}
+
+.function-button p {
+    font-size: 8pt;
+    font-weight: 600;
+}
+
+.function-button-no-margin {
+    margin-right: 0 !important;
+}
