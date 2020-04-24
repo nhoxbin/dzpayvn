@@ -7,10 +7,15 @@
     <meta name="theme-color" content="#00b7f1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Ví Điện Tử DzPayVn - Đổi thẻ cào sang tiền mặt, đổi thẻ điện thoại thành tiền</title>
+    @if(request()->root() === env('APP_URL'))
+        <title>Ví Điện Tử DzPayVn - Đổi thẻ cào sang tiền mặt, đổi thẻ điện thoại thành tiền</title>
+        <meta content="Đổi thẻ cào thành tiền mặt, đổi thẻ điện thoại thành tiền, Thanh toán trực tuyến, Mua hàng an toàn, Tích hợp bán hàng, Mua sắm trực tuyến, Chuyển tiền trực tuyến, Thanh toán, Nạp tiền, Tích hợp thanh toán, Nhận tiền siêu tốc, Gửi yêu cầu chuyển tiền" name="description">
+    @else
+        <title>Link Protect | Bảo Vệ Link, Rút Gọn Link DzPayVN</title>
+        <meta content="Bảo vệ link, rút gọn link và kiếm tiền từ link" name="description">
+    @endif
     <meta content="Ví DZpayVN Hỗ Trợ Nạp tiền vào tài khoản qua Momo, Thẻ Cào, Tài khoản chính của sim ! Hỗ Trợ rút về Momo Và Tất cả Các Ngân Hàng Trong Nước" name="keywords">
-    <meta content="Đổi thẻ cào thành tiền mặt, đổi thẻ điện thoại thành tiền, Thanh toán trực tuyến, Mua hàng an toàn, Tích hợp bán hàng, Mua sắm trực tuyến, Chuyển tiền trực tuyến, Thanh toán, Nạp tiền, Tích hợp thanh toán, Nhận tiền siêu tốc, Gửi yêu cầu chuyển tiền" name="description">
+
     
     <link rel="stylesheet" href="{{ asset('libs/baokim/css/roboto.css') }}">
     <!-- Bootstrap -->
