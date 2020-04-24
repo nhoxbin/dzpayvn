@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta id="viewport" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="theme-color" content="#00b7f1">
+    <link rel="icon" href="https://i.imgur.com/PYutaNd.png">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if(request()->root() === env('APP_URL'))

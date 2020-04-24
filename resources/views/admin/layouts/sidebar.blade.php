@@ -55,7 +55,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="{{ route('admin.link.index') }}">
+    <a class="nav-link" href="{{ route('admin.url.index') }}">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Danh sách link rút gọn</span>
     </a>
