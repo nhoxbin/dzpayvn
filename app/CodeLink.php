@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CodeLink extends Model
 {
 	public $incrementing = false;
+    protected $primaryKey = null;
     protected $fillable = ['phone_number', 'link_id'];
     protected $hidden = ['code'];
 
@@ -21,10 +22,5 @@ class CodeLink extends Model
 
     public function links() {
     	return $this->hasMany('App\Link');
-    }
-
-    public function random_code() {
-    	$this->code = rand(1000, 999999);
-    	$this->save();
     }
 }

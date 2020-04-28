@@ -39,7 +39,11 @@ class Link extends Model
         return $this->code($mobile);
     }
 
-    public function unlock_link() {
+    public function unlock_link($code) {
+        $code_link = $this->code_links()->where('code', $code)->first();
+        $code_link->code = rand(1000, 999999);
+        $code_link->save();
+        
         $this->increment('unlock_count');
         $this->user->cash += $this->service->amount;
         $this->user->save();
