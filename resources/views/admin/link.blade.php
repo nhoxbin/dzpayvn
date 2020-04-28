@@ -13,7 +13,6 @@
 							<tr>
 								<th>Tài khoản</th>
 								<th>Link</th>
-								<th>Code</th>
 								<th>Thu nhập</th>
 								<th>Hành động</th>
 							</tr>
@@ -23,15 +22,14 @@
 							  	<tr>
 							  		<td>{{ $link->user->name }}</td>
 							  		<td>{{ $link->url }}</td>
-							  		<td>{{ $link->code }}</td>
-							  		<td>{{ number_format($link->unlock_count * $link->number->amount) }} đ</td>
+							  		<td>{{ number_format($link->unlock_count * $link->service->amount) }} đ</td>
 							  		<td><button type="button" class="btn btn-sm btn-success" @@click="copyToClipboard('{{ url($link->token) }}')">Copy</button></td>
 							  	</tr>
 						  	@endforeach
 						</tbody>
 						<tfoot>
 		                    <tr>
-		                        <th colspan="3" style="text-align:right">Thu nhập:</th>
+		                        <th colspan="2" style="text-align:right">Thu nhập:</th>
 		                        <th colspan="2"></th>
 		                    </tr>
 		                </tfoot>
@@ -60,7 +58,7 @@
             $('#tblLink').DataTable({
             	order: [],
             	"columnDefs": [
-			        { "targets": [2,3,4], "searchable": false }
+			        { "targets": [2,3], "searchable": false }
 			    ],
                 "footerCallback": function ( row, data, start, end, display ) {
                     var api = this.api(), data;
@@ -74,13 +72,13 @@
                     };
 
                     // Total over all pages
-                    var total = api.column(3).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
+                    var total = api.column(2).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
 
                     // Total over this page
-                    var pageTotal = api.column(3, { page: 'current'} ).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
+                    var pageTotal = api.column(2, { page: 'current'} ).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
                     var income = currency(pageTotal) + ' trên tổng ' + currency(total);
                     // Update footer
-                    $(api.column(3).footer()).html(income);
+                    $(api.column(2).footer()).html(income);
                 }
             });
 		},

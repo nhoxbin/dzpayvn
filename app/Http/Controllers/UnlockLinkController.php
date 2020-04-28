@@ -25,9 +25,8 @@ class UnlockLinkController extends Controller
             $link = Link::find($arr[2]);
             if ($link) {
                 if ($serviceNumber == $link->service_number) {
-	                $link->unlock_link($mobile);
-
-	                $responseInfo = "Chuc mung ban da mo khoa link thanh cong! Chuc ban 1 ngay thuc su vui ve\nCode Link: {$link->code}";
+	                $code = $link->createCode($mobile, $arr[2]);
+	                $responseInfo = "Chuc mung ban da mo khoa link thanh cong! Chuc ban 1 ngay lam viec vui ve\nCode Link: {$code}";
                 } else {
                     $responseInfo = "Gui sai so dich vu\nVui long gui dung so!";
                 }
@@ -43,11 +42,12 @@ class UnlockLinkController extends Controller
 
     public function unlock(Request $request, $token) {
     	$link = Link::where('token', $token)->firstOrFail();
-    	if (is_numeric($request->code) && $link->code === $request->code) {
-    		$link->code = rand(1000, 9999);
-    		$link->save();
-
-    		return redirect($link->url);
+    	if (is_numeric($request->code)) {
+            $code_links = $link->code_links()->where('code', $request->code)->first();
+            if ($code_links) {
+        		$link->unlock_link();
+        		return redirect($link->url);
+            }
     	}
     	return back()->withError('Bạn đã nhập sai code, vui lòng nhập lại!');
     }

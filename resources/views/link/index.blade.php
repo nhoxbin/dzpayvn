@@ -9,7 +9,9 @@
             <table id="tblLink" class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr>
+                        <td>ID</td>
                         <td>Link</td>
+                        <td>Số lần mở khoá</td>
                         <td>Thu nhập</td>
                         <td>Hành động</td>
                     </tr>
@@ -17,15 +19,17 @@
                 <tbody>
                     @foreach($links as $link)
                         <tr>
+                            <td>{{ $link->id }}</td>
                             <td>{{ $link->url }}</td>
-                            <td>{{ number_format($link->unlock_count * $link->number->amount) }} đ</td>
+                            <td>{{ $link->unlock_count }}</td>
+                            <td>{{ number_format($link->unlock_count * $link->service->amount) }} đ</td>
                             <td><button type="button" class="btn btn-sm btn-success" @@click="copyToClipboard('{{ url('link/'.$link->token) }}')">Copy</button></td>
                         </tr>
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th style="text-align:right">Tổng thu nhập:</th>
+                        <th colspan="3" style="text-align:right">Tổng thu nhập:</th>
                         <th colspan="2">@{{ this.total | currency }}</th>
                     </tr>
                 </tfoot>
@@ -73,7 +77,7 @@
                     };
 
                     // Total over all pages
-                    self.total = api.column(1).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
+                    self.total = api.column(3).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
 
                     // Update footer
                     /*$(api.column(1).footer()).html();*/

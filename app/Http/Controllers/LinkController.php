@@ -43,7 +43,6 @@ class LinkController extends Controller
             '*.required' => 'Vui lòng điền :attribute',
             'url.url' => ':attribute phải là :other'
         ]) + [
-            'code' => rand(1000, 9999),
             'token' => $token
         ]);
 
