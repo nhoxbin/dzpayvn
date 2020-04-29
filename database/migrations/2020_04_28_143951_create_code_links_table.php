@@ -16,12 +16,12 @@ class CreateCodeLinksTable extends Migration
         Schema::create('code_links', function (Blueprint $table) {
             $table->string('phone_number', 11);
             $table->foreign('phone_number')->references('number')->on('phones')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('code', 6)->nullable();
+            $table->string('code', 6);
             $table->unsignedBigInteger('link_id');
             $table->foreign('link_id')->references('id')->on('links')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
 
-            $table->unique(['phone_number', 'link_id']);
+            $table->unique(['phone_number', 'code', 'link_id']);
         });
     }
 

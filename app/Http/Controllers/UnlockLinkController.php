@@ -43,8 +43,8 @@ class UnlockLinkController extends Controller
     public function unlock(Request $request, $token) {
     	$link = Link::where('token', $token)->firstOrFail();
     	if (is_numeric($request->code)) {
-            $code_links = $link->code_links()->where('code', $request->code)->first();
-            if ($code_links) {
+            $code_link = $link->code_links()->where('code', $request->code)->first();
+            if ($code_link) {
         		$link->unlock_link($request->code);
         		return redirect($link->url);
             }

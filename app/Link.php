@@ -4,6 +4,7 @@ namespace App;
 
 use App\Phone;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Link extends Model
 {
@@ -32,18 +33,19 @@ class Link extends Model
     public function createCode($mobile, $link_id) {
         $phone = Phone::firstOrCreate(['number' => $mobile]);
         // create if phone number not exists and insert to code_links table
-        $phone->code_links()->updateOrCreate([
+        DB::table('code_links')->updateOrInsert([
             'phone_number' => $mobile,
             'link_id' => $link_id
-        ]);
+        ], ['code' => rand(1000, 999999)]);
         return $this->code($mobile);
     }
 
     public function unlock_link($code) {
-        $code_link = $this->code_links()->where('code', $code)->first();
-        $code_link->code = rand(1000, 999999);
-        $code_link->save();
-        
+        DB::table('code_links')->where([
+            'code' => $code,
+            'link_id' => $this->id
+        ])->update(['code' => rand(1000, 999999)]);
+
         $this->increment('unlock_count');
         $this->user->cash += $this->service->amount;
         $this->user->save();
