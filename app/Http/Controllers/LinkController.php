@@ -15,14 +15,10 @@ class LinkController extends Controller
         return substr(str_shuffle(str_repeat($pool, $length) . time()), 0, $length);
     }
 
-    public function index() {
-        $links = Link::where('user_id', auth()->id())->orderBy('created_at', 'DESC')->get();
-        return view('link.index', compact('links'));
-    }
-
     public function create() {
+        $links = Link::where('user_id', auth()->id())->orderBy('created_at', 'DESC')->get();
         $service_numbers = ServiceNumber::all();
-        return view('link.create', compact('service_numbers'));
+        return view('link.create', compact('links', 'service_numbers'));
     }
 
     public function store(Request $request) {

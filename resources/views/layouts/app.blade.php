@@ -8,7 +8,7 @@
     <link rel="icon" href="https://i.imgur.com/PYutaNd.png">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @if(request()->root() === env('APP_URL'))
+    @if(request()->getHost() === env('MAIN_DOMAIN'))
         <title>Ví Điện Tử DzPayVn - Đổi thẻ cào sang tiền mặt, đổi thẻ điện thoại thành tiền</title>
         <meta content="Đổi thẻ cào thành tiền mặt, đổi thẻ điện thoại thành tiền, Thanh toán trực tuyến, Mua hàng an toàn, Tích hợp bán hàng, Mua sắm trực tuyến, Chuyển tiền trực tuyến, Thanh toán, Nạp tiền, Tích hợp thanh toán, Nhận tiền siêu tốc, Gửi yêu cầu chuyển tiền" name="description">
     @else

@@ -98,19 +98,6 @@
                     </div>
                 </div>
             </a>
-            <a href="{{ route('url.index') }}">
-                <div class="func-item">
-                    <div class="col">
-                        <img class="icon" src="{{ asset('libs/baokim/images/transfer.svg') }}" alt="">
-                    </div>
-                    <div class="col">
-                        <span class="func-name">Danh sách link rút gọn</span>
-                    </div>
-                    <div class="col">
-                        <span class="pull-right arrow"><i class="fa fa-angle-right"></i></span>
-                    </div>
-                </div>
-            </a>
             <a href="{{ route('shake.create') }}">
                 <div class="func-item">
                     <div class="col">

@@ -125,7 +125,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     // Link
     Route::resource('url', 'LinkController', [
-        'only' => ['index', 'create', 'store']
+        'only' => ['create', 'store']
     ]);
 
     // mua

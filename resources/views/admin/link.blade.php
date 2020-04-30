@@ -11,8 +11,10 @@
 					<table class="table table-bordered" id="tblLink" width="100%" cellspacing="0">
 						<thead>
 							<tr>
+								<th>ID</th>
 								<th>Tài khoản</th>
 								<th>Link</th>
+								<th>Lượt mở</th>
 								<th>Thu nhập</th>
 								<th>Hành động</th>
 							</tr>
@@ -20,8 +22,10 @@
 						<tbody>
 						  	@foreach($links as $link)
 							  	<tr>
+							  		<td>{{ $link->id }}</td>
 							  		<td>{{ $link->user->name }}</td>
 							  		<td>{{ $link->url }}</td>
+							  		<td>{{ $link->unlock_count }}</td>
 							  		<td>{{ number_format($link->unlock_count * $link->service->amount) }} đ</td>
 							  		<td><button type="button" class="btn btn-sm btn-success" @@click="copyToClipboard('{{ url($link->token) }}')">Copy</button></td>
 							  	</tr>

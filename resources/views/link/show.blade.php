@@ -6,7 +6,7 @@
 <div class="payment-body main_df_bt">
     <div class="main-content-container">
         Mở khóa link bằng OTP tin nhắn<br />
-        Soạn tin: <b>ON DZLINK {{ $link->id }}</b> gửi <b>{{ $link->service_number }}</b> ({{ number_format($link->service->amount) }} VNĐ / sms)
+        Soạn tin: <b>ON DZLINK {{ $link->id }}</b> gửi <b>{{ $link->service_number }}</b>
         <form action="" method="post">
             @csrf
             Nhập mã: <input type="number" name="code" class="form-control">
