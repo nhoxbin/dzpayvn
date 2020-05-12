@@ -15,10 +15,10 @@
                 @endforeach
             </select>
 
-            <input type="url" name="url" placeholder="Vui lòng nhập link" class="form-control">
+            <input type="url" name="url" placeholder="Bỏ link cần rút gọn vào đây!" class="form-control">
             <br />
             <div class="input-block">
-                <button type="submit" class="buy-btn btn btn-green">Xác nhận</button>
+                <button type="submit" class="buy-btn btn btn-green">Rút Gọn</button>
             </div>
         </form>
         <br />

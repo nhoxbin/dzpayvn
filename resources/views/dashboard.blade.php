@@ -54,9 +54,13 @@
             <img src="https://i.imgur.com/3xUbehh.png">
             <p>Bắn Tiền TKC Và Nạp Cước ( 3 Nhà Mạng )</p>
 	    </a>
-	    <a href="{{ route('url.create') }}" class="function-button no-padding shadow blockIP">
-            <img src="https://i.imgur.com/3xUbehh.png">
-            <p>Link rút gọn</p>
+	    <a href="http://shopgamedz.com" class="function-button no-padding shadow blockIP">
+            <img src="https://i.imgur.com/eASDz2X.png">
+            <p>Nạp Game, App Mobile Qua Android và IOS giá rẻ!</p>
+	    </a>
+	    <a href="{{ route('url.create') }}" class="function-button no-padding function-button-no-margin shadow blockIP">
+            <img src="https://i.imgur.com/mACPdxd.png">
+            <p>Rút Gọn Link ( Kiếm Tiền )</p>
 	    </a>
 		{{-- @foreach($games as $game)
     	    <a href="{{ route('game.buy.create', $game['id']) }}" class="function-button no-padding shadow {{ $loop->iteration%3 === 0 ? 'function-button-no-margin' : '' }} blockIP">
@@ -65,16 +69,16 @@
     	    </a>
 	    @endforeach --}}
 	</div>
-	{{-- <div class="other-function-container">
-	    <a href="{{ route('dashboard') }}">
+	<div class="other-function-container">
+	    <a href="https://www.facebook.com/vlHungDZ/">
 	        <div class="other-function-content shadow">
-	            <img src="{{ asset('libs/baokim/images/lien-ket-the.svg') }}">
+	            <img src="https://i.imgur.com/ugfVQ0w.png">
 	            <div class="content-text">
-	                <span>Lịch sử nạp tiền</span>
+	                <span>Liên Hệ Facebook Admin</span>
 	            </div>
 	        </div>
 	    </a>
-	</div> --}}
+	</div>
 </div>
 @endsection
 

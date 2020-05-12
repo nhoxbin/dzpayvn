@@ -27,13 +27,13 @@
 							  		<td>{{ $link->url }}</td>
 							  		<td>{{ $link->unlock_count }}</td>
 							  		<td>{{ number_format($link->unlock_count * $link->service->amount) }} đ</td>
-							  		<td><button type="button" class="btn btn-sm btn-success" @@click="copyToClipboard('{{ url($link->token) }}')">Copy</button></td>
+							  		<td><button type="button" class="btn btn-sm btn-success" @@click="copyToClipboard('{{ url('link/'.$link->token) }}')">Copy</button></td>
 							  	</tr>
 						  	@endforeach
 						</tbody>
 						<tfoot>
 		                    <tr>
-		                        <th colspan="2" style="text-align:right">Thu nhập:</th>
+		                        <th colspan="4" style="text-align:right">Thu nhập:</th>
 		                        <th colspan="2"></th>
 		                    </tr>
 		                </tfoot>
@@ -76,13 +76,13 @@
                     };
 
                     // Total over all pages
-                    var total = api.column(2).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
+                    var total = api.column(4).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
 
                     // Total over this page
-                    var pageTotal = api.column(2, { page: 'current'} ).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
+                    var pageTotal = api.column(4, { page: 'current'} ).data().reduce((a, b) => (intVal(a) + intVal(b)), 0);
                     var income = currency(pageTotal) + ' trên tổng ' + currency(total);
                     // Update footer
-                    $(api.column(2).footer()).html(income);
+                    $(api.column(4).footer()).html(income);
                 }
             });
 		},

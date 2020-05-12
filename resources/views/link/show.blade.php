@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Danh sách link rút gọn')
+@section('title', 'Rút Gọn Link | Bảo Mật Link | DZpayVN')
 
 @section('payment-body')
 <div class="payment-body main_df_bt">
     <div class="main-content-container">
         Mở khóa link bằng OTP tin nhắn<br />
-        Soạn tin: <b>ON DZLINK {{ $link->id }}</b> gửi <b>{{ $link->service_number }}</b>
+        Soạn tin: <b>ON DZLINK {{ $link->id }}</b> gửi <b>{{ $link->service_number }}</b><br/>
+        <a href="sms:{{ $link->service_number }}?body=ON DZLINK {{ $link->id }}">=> Click <= Coppy Và Mở Nhắn Tin Trên Điện Thoại</a>
         <form action="" method="post">
             @csrf
-            Nhập mã: <input type="number" name="code" class="form-control">
+            Nhập mã OTP: <input type="number" name="code" class="form-control">
             <br />
             <button type="submit" class="btn btn-success">Mở khóa</button>
         </form>
