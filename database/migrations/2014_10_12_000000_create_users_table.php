@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->unsignedBigInteger('cash')->default(0);
             $table->string('email')->unique();
-            $table->unsignedBigInteger('phone')->unique();
+            $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('manage_game')->nullable();

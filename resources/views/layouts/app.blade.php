@@ -42,7 +42,7 @@
         <div class="payment-container container no-padding">
             <div class="payment-header sticky">
                 <div class="pull-left">
-                    <a href="{{ env('APP_URL', null) }}">
+                    <a href="/">
                         <img src="https://i.imgur.com/xJmFg7T.png" alt="logo">
                     </a>
                 </div>

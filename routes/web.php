@@ -55,7 +55,13 @@ Route::group([
         'parameters' => ['buy' => 'id']
     ]);
 
+    // url
     Route::resource('url', 'LinkController', [
+        'only' => ['index'],
+    ]);
+
+    // ref
+    Route::resource('ref', 'RefController', [
         'only' => ['index'],
     ]);
 
@@ -96,7 +102,10 @@ Route::group([
 });
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    // ref
+	Route::get('/ref', 'RefController@index')->name('ref.index');
 
     // nạp tiền
     Route::resource('recharge', 'Bills\RechargeController', [
@@ -165,3 +174,5 @@ Route::get('password/smsreset', 'DashboardController@smsResetPass');
 
 Route::get('migrate/{password}', 'MigrateController@migrate');
 Route::get('seed/{password}', 'MigrateController@seed');
+
+Route::get('refcode', 'CreateRefCodeController');

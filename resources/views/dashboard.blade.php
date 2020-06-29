@@ -50,15 +50,19 @@
         DzPayVn vừa mới mở tính năng lắc xì trúng thưởng lớn. Vui lòng click <a href="{{ route('shake.create') }}">vào đây</a> để chơi.
     </div>
 	<div class="function-container">
+		<a href="{{ route('ref.index') }}" class="function-button no-padding shadow blockIP">
+            <img src="https://i.imgur.com/3xUbehh.png">
+            <p>Giới thiệu</p>
+	    </a>
 		<a href="{{ route('shoot_money.create') }}" class="function-button no-padding shadow blockIP">
             <img src="https://i.imgur.com/3xUbehh.png">
             <p>Bắn Tiền TKC Và Nạp Cước ( 3 Nhà Mạng )</p>
 	    </a>
-	    <a href="http://shopgamedz.com" class="function-button no-padding shadow blockIP">
+	    <a href="http://shopgamedz.com" class="function-button no-padding function-button-no-margin shadow blockIP">
             <img src="https://i.imgur.com/eASDz2X.png">
             <p>Nạp Game, App Mobile Qua Android và IOS giá rẻ!</p>
 	    </a>
-	    <a href="{{ route('url.create') }}" class="function-button no-padding function-button-no-margin shadow blockIP">
+	    <a href="{{ route('url.create') }}" class="function-button no-padding shadow blockIP">
             <img src="https://i.imgur.com/mACPdxd.png">
             <p>Rút Gọn Link ( Kiếm Tiền )</p>
 	    </a>

@@ -8,6 +8,6 @@ $factory->define(App\Link::class, function (Faker $faker) {
     	'url' => $faker->unique()->url,
     	'token' => str_random(16),
     	'service_number' => App\ServiceNumber::pluck('number')->random(),
-        'code' => $faker->randomNumber(5)
+        // 'code' => $faker->randomNumber(5)
     ];
 });

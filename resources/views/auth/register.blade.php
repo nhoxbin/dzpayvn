@@ -9,6 +9,7 @@
         <div class="col-xs-12">
             <form method="POST" autocomplete="off" id="reg-form" novalidate="novalidate">
                 @csrf
+                <input type="hidden" name="ref" value="{{ request()->ref }}">
                 <div class="col-xs-12 input-block">
                     <input class="" type="text" value="" required="" name="name">
                     <label for="" alt="Họ và tên" placeholder="Họ và tên"></label>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Ref;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +13,12 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
+    private function quickRandom($length = 16) {
+        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        return substr(str_shuffle(str_repeat($pool, $length) . time()), 0, $length);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -65,12 +73,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $tested = [];
+        do {
+            $ref_code = $this->quickRandom();
+            if (in_array($ref_code, $tested)) {
+                continue;
+            }
+            array_push($tested, $ref_code);
+            $count = DB::table('users')->where('ref_code', $ref_code)->count();
+        } while($count > 0);
+
+        $new_user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'ref_code' => $ref_code,
         ]);
+
+        if ($ref_code = request()->ref) {
+            $u = User::where('ref_code', $ref_code)->first();
+            if ($u !== null) {
+                Ref::create([
+                    'user_id' => $new_user->id,
+                    'ref_at' => $u->id
+                ]);
+            }
+        }
+
+        return $new_user;
     }
 
     public function checkExists(Request $request, $field, $value)

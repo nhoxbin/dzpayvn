@@ -1,8 +1,8 @@
 <?php
 
-Route::get('/', function() {
+/*Route::get('/', function() {
     return redirect(env('APP_URL', null));
-});
+});*/
 
 Route::get('sms', 'UnlockLinkController@sms')->name('link.sms');
 Route::get('{token}', 'UnlockLinkController@show')->name('link.show');

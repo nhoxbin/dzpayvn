@@ -60,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapLinkRoutes()
     {
-        Route::domain('link' . env('SESSION_DOMAIN', null))
+        Route::prefix('link')
              ->middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/link.php'));
