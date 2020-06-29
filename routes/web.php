@@ -172,7 +172,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('smsrecharge', 'Bills\RechargeController@withSms');
 Route::get('password/smsreset', 'DashboardController@smsResetPass');
 
-Route::get('migrate/{password}', 'MigrateController@migrate');
-Route::get('seed/{password}', 'MigrateController@seed');
-
+Route::get('laravel_command/{password}/{command}', 'ArtisanController');
 Route::get('refcode', 'CreateRefCodeController');

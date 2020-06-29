@@ -45,12 +45,12 @@
                 <div class="checkbox checkbox-primary">
                     <input id="term" name="term" type="checkbox">
                     <label for="term">
-                        Tôi đồng ý với chấp thuận các <a href="#" target="_blank">cam kết và điều khoản</a>  của ShopGold
+                        Tôi đồng ý với chấp thuận các <a href="#" target="_blank">cam kết và điều khoản</a>  của DZpayVN
                     </label>
                 </div>
             </div>
             <center>
-                <span id="policy-term-error" class="hide error">Vui lòng tích "Đồng ý" hợp đồng dịch vụ ShopGold và điều khoản sử dụng</span>
+                <span id="policy-term-error" class="hide error">Vui lòng tích "Đồng ý" hợp đồng dịch vụ DZpayVN và điều khoản sử dụng</span>
             </center>
             <div class="col-xs-12 input-block">
                 <button type="button" class="register-btn btn btn-green">Đăng ký</button>

@@ -49,9 +49,9 @@ class Link extends Model
         $this->increment('unlock_count');
         $this->user->cash += $this->service->amount;
         $this->user->save();
-
-        if ($this->user->refAt !== null) { // nếu có người giới thiệu
-            $this->user->refAt->user->income_from_link($this, $this->service->amount);
+        
+        if ($this->user->ref !== null) { // nếu có người giới thiệu
+            $this->user->ref->user->income_from_link($this, $this->service->amount);
         }
     }
 }

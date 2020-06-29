@@ -20,6 +20,8 @@ class CreateRefablesTable extends Migration
             $table->string('refable_id'); // use string becuz cards use uuid key
             $table->string('refable_type'); // links, cards
             $table->unsignedDecimal('income', 15, 2);
+            $table->unsignedBigInteger('from_id')->nullable();
+            $table->foreign('from_id')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }

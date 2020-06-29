@@ -73,11 +73,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Shake')->orderBy('created_at', 'desc');
     }
 
-    public function refs() {
+    public function ref_users() {
         return $this->hasMany('App\Ref', 'ref_at');
     }
 
-    public function refAt() {
+    public function ref() {
         return $this->hasOne('App\Ref');
     }
 
@@ -101,13 +101,13 @@ class User extends Authenticatable
 
     public function income_from_ref($relationship, $model, $income) {
         $income *= 0.01;
-        $relationship->attach($model, ['income' => $income]);
+        $relationship->attach($model, ['income' => $income, 'from_id' => $model->user->id]);
 
-        $model->user->refAt->user->cash += ($income);
-        $model->user->refAt->user->save();
+        $model->user->ref->user->cash += ($income);
+        $model->user->ref->user->save();
     }
 
-    public function getIncomeAttribute() {
+    public function getIncomesAttribute() {
         $users = $this->with(['income_from_cards' => function($q) {
             $q->withPivot('income');
         }, 'income_from_links' => function($q) {
@@ -136,15 +136,25 @@ class User extends Authenticatable
     }
 
     public function getUserRefsAttribute() {
-        $users = $this->with('refs')->has('refs')->get();
+        $users = $this->with(['income_from_cards' => function($q) {
+            $q->withPivot('income');
+        }, 'income_from_links' => function($q) {
+            $q->withPivot('income');
+        }])->has('income_from_cards')
+            ->orHas('income_from_links')
+            ->get();
+        
         $data = collect();
         foreach ($users as $user) {
             $item['name'] = $user->name;
-            foreach ($user->refs as $ref) {
-                $item['ref'] = $ref->user->name;
-                $item['created_at'] = $ref->user->created_at;
-                $data->push($item);
+            $item['total_income'] = 0;
+            foreach ($user->income_from_cards as $card) {
+                $item['total_income'] += $card->pivot->income;
             }
+            foreach ($user->income_from_links as $link) {
+                $item['total_income'] += $link->pivot->income;
+            }
+            $data->push($item);
         }
         return $data;
     }

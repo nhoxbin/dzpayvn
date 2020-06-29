@@ -8,7 +8,11 @@ class Ref extends Model
 {
     protected $fillable = ['user_id', 'ref_at'];
 
-    public function user() {
+    public function ref() {
     	return $this->belongsTo('App\User');
+    }
+
+    public function user() {
+    	return $this->belongsTo('App\User', 'ref_at');
     }
 }

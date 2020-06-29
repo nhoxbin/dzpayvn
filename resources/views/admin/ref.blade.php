@@ -18,12 +18,12 @@
 							</tr>
 						</thead>
 						<tbody>
-						  	@foreach($income as $v)
+						  	@foreach($users->incomes as $income)
 							  	<tr>
-							  		<td>{{ $v['name'] }}</td>
-							  		<td>{{ $v['type'] }}</td>
-							  		<td>{{ $v['datetime'] }}</td>
-							  		<td>{{ number_format($v['income']) }}<sup>đ</sup></td>
+							  		<td>{{ $income['name'] }}</td>
+							  		<td>{{ $income['type'] }}</td>
+							  		<td>{{ $income['datetime'] }}</td>
+							  		<td>{{ number_format($income['income']) }}<sup>đ</sup></td>
 							  	</tr>
 						  	@endforeach
 						</tbody>
@@ -49,15 +49,15 @@
 							<tr>
 								<th>Người giới thiệu</th>
 								<th>Người được giới thiệu</th>
-								<th>Ngày</th>
+								<th>Tổng thu nhập</th>
 							</tr>
 						</thead>
 						<tbody>
-						  	@foreach($refs as $ref)
+						  	@foreach($users->user_refs as $ref)
 							  	<tr>
 							  		<td>{{ $ref['name'] }}</td>
-							  		<td>{{ $ref['ref'] }}</td>
-							  		<td>{{ $ref['created_at'] }}</td>
+							  		{{-- <td>{{ $ref['ref'] }}</td> --}}
+							  		{{-- <td>{{ $ref['total_income'] }}</td> --}}
 							  	</tr>
 						  	@endforeach
 						</tbody>

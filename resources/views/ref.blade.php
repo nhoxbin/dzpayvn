@@ -6,7 +6,7 @@
         <div class="col-xs-12">
             <p>Giới thiệu bạn bè sử dụng DzPayVn ngay! Bạn sẽ nhận được 1% vnđ từ họ khi họ nạp tiền bằng thẻ cào, kiếm tiền từ rút gọn link! Link mời của bạn bên dưới 👇</p>
             <div style="text-align: center; margin-bottom: 2rem;">
-                <span>{{ url('register?ref=' . Auth::user()->ref_code) }}</span>
+                <pre>{{ url('register?ref=' . Auth::user()->ref_code) }}</pre>
             </div>
             
             <h4>Những người được bạn giới thiệu</h4>
@@ -19,12 +19,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user as $ref)
+                        {{-- @foreach($user as $ref)
                             <tr>
                                 <td>{{ $ref->user->name }}</td>
                                 <td>{{ $ref->created_at }}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>

@@ -96,8 +96,8 @@ class HistoryController extends Controller
                                 $recharge_bill->confirm = 1;
                                 $recharge_bill->save();
 
-                                if ($recharge_bill->user->refAt !== null) { // nếu có người giới thiệu
-                                    $recharge_bill->user->refAt->user->income_from_card($recharge_bill, $recharge_bill->money);
+                                if ($recharge_bill->user->ref !== null) { // nếu có người giới thiệu
+                                    $recharge_bill->user->ref->user->income_from_card($recharge_bill, $recharge_bill->money);
                                 }
 
                                 return redirect()->back()->withSuccess($card['statusMessage']);
