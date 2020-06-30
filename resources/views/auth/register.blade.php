@@ -55,7 +55,6 @@
             <div class="col-xs-12 input-block">
                 <button type="button" class="register-btn btn btn-green">Đăng ký</button>
             </div>
-            
         </div>
     </div>
 </div>

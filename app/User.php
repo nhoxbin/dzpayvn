@@ -2,6 +2,8 @@
 
 namespace App;
 
+
+use Illuminate\Support\Arr;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -74,11 +76,15 @@ class User extends Authenticatable
     }
 
     public function ref_users() {
-        return $this->hasMany('App\Ref', 'ref_at');
+        return $this->hasMany('App\Refable');
     }
 
     public function ref() {
         return $this->hasOne('App\Ref');
+    }
+
+    public function refsAt() {
+        return $this->hasMany('App\Ref', 'ref_at');
     }
 
     public function income_from_cards() {
@@ -136,26 +142,12 @@ class User extends Authenticatable
     }
 
     public function getUserRefsAttribute() {
-        $users = $this->with(['income_from_cards' => function($q) {
-            $q->withPivot('income');
-        }, 'income_from_links' => function($q) {
-            $q->withPivot('income');
-        }])->has('income_from_cards')
-            ->orHas('income_from_links')
+        $users = \DB::table('refables as r')
+            ->selectRaw('u1.name as name, SUM(income) AS total_income, u2.name as ref')
+            ->join('users as u1', 'u1.id', '=', 'r.user_id')
+            ->join('users as u2', 'u2.id', '=', 'r.from_id')
+            ->groupBy('user_id', 'from_id')
             ->get();
-        
-        $data = collect();
-        foreach ($users as $user) {
-            $item['name'] = $user->name;
-            $item['total_income'] = 0;
-            foreach ($user->income_from_cards as $card) {
-                $item['total_income'] += $card->pivot->income;
-            }
-            foreach ($user->income_from_links as $link) {
-                $item['total_income'] += $link->pivot->income;
-            }
-            $data->push($item);
-        }
-        return $data;
+        return $users;
     }
 }

@@ -44,7 +44,7 @@
 		    </div>
 		    <div class="card-body">
 				<div class="table-responsive">
-					<table class="table table-bordered" id="tblRef" width="100%" cellspacing="0">
+					<table class="table table-bordered" id="tblRefDetail" width="100%" cellspacing="0">
 						<thead>
 							<tr>
 								<th>Người giới thiệu</th>
@@ -53,11 +53,11 @@
 							</tr>
 						</thead>
 						<tbody>
-						  	@foreach($users->user_refs as $ref)
+						  	@foreach($users->user_refs as $user)
 							  	<tr>
-							  		<td>{{ $ref['name'] }}</td>
-							  		{{-- <td>{{ $ref['ref'] }}</td> --}}
-							  		{{-- <td>{{ $ref['total_income'] }}</td> --}}
+							  		<td>{{ $user->name }}</td>
+							  		<td>{{ $user->ref }}</td>
+							  		<td>{{ $user->total_income }}</td>
 							  	</tr>
 						  	@endforeach
 						</tbody>
@@ -110,7 +110,7 @@
                 }
             });
 
-            $('#tblRef').DataTable({
+            $('#tblRefDetail').DataTable({
             	order: [],
             	"columnDefs": [
 			        { "targets": [2], "searchable": false }
