@@ -88,11 +88,11 @@ class User extends Authenticatable
     }
 
     public function income_from_cards() {
-        return $this->morphedByMany('App\RechargeBill', 'refable')->withTimestamps();
+        return $this->morphedByMany('App\RechargeBill', 'refable')->withPivot('income')->withTimestamps();
     }
 
     public function income_from_links() {
-        return $this->morphedByMany('App\Link', 'refable')->withTimestamps();
+        return $this->morphedByMany('App\Link', 'refable')->withPivot('income')->withTimestamps();
     }
 
     public function income_from_card(RechargeBill $card, $income) {
@@ -111,6 +111,25 @@ class User extends Authenticatable
 
         $model->user->ref->user->cash += ($income);
         $model->user->ref->user->save();
+    }
+
+    public function getIncomeAttribute() {
+        $data = collect();
+        foreach ($this->income_from_cards as $card) {
+            $item['name'] = $card->user->name;
+            $item['type'] = 'Card ' . number_format($card->money);
+            $item['income'] = $card->pivot->income;
+            $item['datetime'] = $card->created_at;
+            $data->push($item);
+        }
+        foreach ($this->income_from_links as $link) {
+            $item['name'] = $link->user->name;
+            $item['type'] = 'Link. ' . $link->service->number;
+            $item['income'] = $link->pivot->income;
+            $item['datetime'] = $link->created_at;
+            $data->push($item);
+        }
+        return $data;
     }
 
     public function getIncomesAttribute() {
@@ -139,6 +158,17 @@ class User extends Authenticatable
             }
         }
         return $data;
+    }
+
+    public function getUserRefAttribute() {
+        $users = \DB::table('refs')
+            ->selectRaw('name, SUM(CASE WHEN income IS NOT NULL THEN income END) AS total_income, MIN(refs.created_at) as joined_at')
+            ->leftJoin('refables as r', 'r.from_id', '=', 'refs.user_id')
+            ->join('users as u', 'u.id', '=', 'refs.user_id')
+            ->where('refs.ref_at', auth()->id())
+            ->groupBy('refs.user_id')
+            ->get();
+        return $users;
     }
 
     public function getUserRefsAttribute() {

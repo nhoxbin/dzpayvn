@@ -15,15 +15,15 @@
                     <thead>
                         <tr>
                             <td>Tên</td>
-                            <td>Ngày</td>
+                            <td>Tham gia vào lúc</td>
                             <td>Tổng thu</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($refs as $ref)
                             <tr>
-                                <td>{{ $ref->ref }}</td>
-                                <td>{{ $ref->created_at }}</td>
+                                <td>{{ $ref->name }}</td>
+                                <td>{{ $ref->joined_at }}</td>
                                 <td>{{ number_format($ref->total_income) }}<sup>đ</sup></td>
                             </tr>
                         @endforeach
@@ -45,10 +45,10 @@
                     <tbody>
                         @foreach($refs_detail as $ref)
                             <tr>
-                                <td>{{ $ref->ref->name }}</td>
-                                <td>{{ $ref->refable_type === 'App\Link' ? 'Link' : 'Card' }}</td>
-                                <td>{{ $ref->ref->created_at }}</td>
-                                <td>{{ number_format($ref->income) }}<sup>đ</sup></td>
+                                <td>{{ $ref['name'] }}</td>
+                                <td>{{ $ref['type'] }}</td>
+                                <td>{{ $ref['datetime'] }}</td>
+                                <td>{{ number_format($ref['income']) }}<sup>đ</sup></td>
                             </tr>
                         @endforeach
                     </tbody>

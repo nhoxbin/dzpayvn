@@ -15,4 +15,8 @@ class Ref extends Model
     public function user() {
     	return $this->belongsTo('App\User', 'ref_at');
     }
+
+    public function refables() {
+    	return $this->hasMany('App\Refable', 'user_id', 'ref_at');
+    }
 }
