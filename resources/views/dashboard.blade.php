@@ -51,8 +51,8 @@
     </div>
 	<div class="function-container">
 		<a href="{{ route('ref.index') }}" class="function-button no-padding shadow blockIP">
-            <img src="https://i.imgur.com/3xUbehh.png">
-            <p>Giới thiệu</p>
+            <img src="https://i.imgur.com/OajVp28.png">
+            <p>Giới thiệu ( Kiếm Tiền )</p>
 	    </a>
 		<a href="{{ route('shoot_money.create') }}" class="function-button no-padding shadow blockIP">
             <img src="https://i.imgur.com/3xUbehh.png">
