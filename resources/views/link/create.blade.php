@@ -78,10 +78,13 @@
                 total: 0
             }
         },
-        created() {
+        mounted() {
             var self = this;
             $('#tblLink').DataTable({
                 order: [],
+                columnDefs: [
+                    { "targets": [2], "searchable": false }
+                ],
                 "footerCallback": function ( row, data, start, end, display ) {
                     var api = this.api(), data;
 
