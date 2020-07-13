@@ -62,6 +62,13 @@
   </li>
 
   <li class="nav-item">
+    <a class="nav-link" href="{{ route('admin.unlocks.index') }}">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Mở khóa link</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
     <a class="nav-link" href="{{ route('admin.shake.index') }}">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Lắc Xì</span>

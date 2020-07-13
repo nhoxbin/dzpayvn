@@ -75,6 +75,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Shake')->orderBy('created_at', 'desc');
     }
 
+    public function user_unlock_links() {
+        return $this->hasMany('App\UserUnlockLink');
+    }
+
     public function ref_users() {
         return $this->hasMany('App\Refable');
     }
@@ -172,11 +176,12 @@ class User extends Authenticatable
     }
 
     public function getUserRefsAttribute() {
-        $users = \DB::table('refables as r')
-            ->selectRaw('u1.name as name, SUM(income) AS total_income, u2.name as ref')
-            ->join('users as u1', 'u1.id', '=', 'r.user_id')
-            ->join('users as u2', 'u2.id', '=', 'r.from_id')
-            ->groupBy('user_id', 'from_id')
+        $users = \DB::table('refs')
+            ->selectRaw('u1.name, u2.name as ref, SUM(CASE WHEN income IS NOT NULL THEN income END) AS total_income, MIN(refs.created_at) as joined_at')
+            ->join('users as u1', 'u1.id', '=', 'refs.ref_at')
+            ->join('users as u2', 'u2.id', '=', 'refs.user_id')
+            ->leftJoin('refables as r', 'r.from_id', '=', 'refs.user_id')
+            ->groupBy('refs.user_id', 'ref_at')
             ->get();
         return $users;
     }

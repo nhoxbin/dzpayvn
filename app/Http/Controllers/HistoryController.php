@@ -85,6 +85,7 @@ class HistoryController extends Controller
                                 ];
                                 foreach ($cards as $amount => $range) {
                                     if ($card['netValue'] >= $range[0] && $card['netValue'] <= $range[1]) {
+                                        $money = $amount;
                                         $cash = Auth::user()->cash + ($amount - ($amount * $discount / 100));
                                         break;
                                     }
@@ -93,6 +94,7 @@ class HistoryController extends Controller
                                 Auth::user()->cash = $cash;
                                 Auth::user()->save();
 
+                                $recharge_bill->money = $money;
                                 $recharge_bill->confirm = 1;
                                 $recharge_bill->save();
 

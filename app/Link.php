@@ -26,6 +26,10 @@ class Link extends Model
         return $this->hasMany('App\CodeLink');
     }
 
+    public function user_unlock_links() {
+        return $this->hasMany('App\UserUnlockLink');
+    }
+
     public function code($mobile) {
         return $this->code_links()->where('phone_number', $mobile)->first()->code;
     }
@@ -40,12 +44,7 @@ class Link extends Model
         return $this->code($mobile);
     }
 
-    public function unlock_link($code) {
-        DB::table('code_links')->where([
-            'code' => $code,
-            'link_id' => $this->id
-        ])->update(['code' => rand(1000, 999999)]);
-
+    public function unlock() {
         $this->increment('unlock_count');
         $this->user->cash += $this->service->amount;
         $this->user->save();
@@ -53,5 +52,22 @@ class Link extends Model
         if ($this->user->ref !== null) { // nếu có người giới thiệu
             $this->user->ref->user->income_from_link($this, $this->service->amount);
         }
+    }
+
+    public function unlock_link($code) {
+        DB::table('code_links')->where([
+            'code' => $code,
+            'link_id' => $this->id
+        ])->update(['code' => rand(1000, 999999)]);
+
+        $this->unlock();
+    }
+
+    public function user_unlock_link() {
+        \Auth::user()->cash -= $this->service->amount;
+        \Auth::user()->save();
+
+        $this->user_unlock_links()->create(['user_id' => auth()->id()]);
+        $this->unlock();
     }
 }

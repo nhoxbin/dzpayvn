@@ -57,7 +57,7 @@
 							  	<tr>
 							  		<td>{{ $user->name }}</td>
 							  		<td>{{ $user->ref }}</td>
-							  		<td>{{ $user->total_income }}</td>
+							  		<td>{{ number_format($user->total_income, 2) }}<sup>đ</sup></td>
 							  	</tr>
 						  	@endforeach
 						</tbody>

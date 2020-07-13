@@ -8,6 +8,11 @@ Route::group([
 ], function() {
     Route::get('/', 'HomeController@home')->name('home');
 
+    // Link
+    Route::resource('unlocks', 'UnlockLinkController', [
+        'only' => ['index']
+    ]);
+
     // Thiết lập Lắc xì
     Route::resource('prize', 'ShakePrizeController', [
         'only' => ['edit', 'update']

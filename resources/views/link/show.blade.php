@@ -14,6 +14,12 @@
             <br />
             <button type="submit" class="btn btn-success">Mở khóa</button>
         </form>
+        Hoặc
+        <form action="" method="post">
+            @csrf
+            <input type="hidden" name="user_unlock_link" value="1">
+            <button type="submit" class="btn btn-success">Mở Khóa Bằng Tiền Trong Tài Khoản DzPayVN ( {{ number_format($link->service->amount) }} vnđ )</button>
+        </form>
     </div>
 </div>
 @endsection
@@ -31,22 +37,4 @@
 
 @push('script')
 <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        data: function() {
-            return {
-
-            }
-        },
-        created() {
-        },
-        computed: {
-            
-        },
-        methods: {
-            
-        }
-    })
-</script>
 @endpush

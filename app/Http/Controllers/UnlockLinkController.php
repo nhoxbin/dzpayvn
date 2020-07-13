@@ -42,6 +42,15 @@ class UnlockLinkController extends Controller
 
     public function unlock(Request $request, $token) {
     	$link = Link::where('token', $token)->firstOrFail();
+        if ($request->user_unlock_link == 1) {
+            if (\Auth::user()->cash < (int) $link->service->amount) {
+                return back()->withError('Bạn không đủ tiền, vui lòng nạp thêm tiền!');
+            }
+
+            $link->user_unlock_link();
+            return redirect($link->url);
+        }
+
     	if (is_numeric($request->code)) {
             $code_link = $link->code_links()->where('code', $request->code)->first();
             if ($code_link) {

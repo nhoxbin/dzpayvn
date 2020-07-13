@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CodeLink extends Model
 {
+    // dành cho số điện thoại
 	public $incrementing = false;
     protected $primaryKey = null;
     protected $fillable = ['phone_number', 'link_id'];
