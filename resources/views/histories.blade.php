@@ -9,11 +9,11 @@
                 <table id="tblRecharge" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td>Hành động</td>
-                            <td>Ngày</td>
-                            <td>Mã GD</td>
-                            <td>Số tiền</td>
-                            <td>Hình thức</td>
+                            <th>Hành động</th>
+                            <th>Ngày</th>
+                            <th>Mã GD</th>
+                            <th>Số tiền</th>
+                            <th>Hình thức</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,11 +45,11 @@
                 <table id="tblWithdraw" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td>Ngày</td>
-                            <td>Mã GD</td>
-                            <td>Số tiền</td>
-                            <td>Hình thức</td>
-                            <td>Trạng thái</td>
+                            <th>Ngày</th>
+                            <th>Mã GD</th>
+                            <th>Số tiền</th>
+                            <th>Hình thức</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -129,10 +129,10 @@
                 <table id="tblTransfer" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td>Ngày</td>
-                            <td>Người chuyển</td>
-                            <td>Người nhận</td>
-                            <td>Số tiền</td>
+                            <th>Ngày</th>
+                            <th>Người chuyển</th>
+                            <th>Người nhận</th>
+                            <th>Số tiền</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,13 +156,37 @@
                 </table>
             </div>
 
+            <h3>Lịch sử mở link</h3>
+            <div class="table-responsive">
+                <table id="tblUnlockLink" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Số tiền trừ</th>
+                            <th>Thời gian</th>
+                            <th>Số dịch vụ</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($user['unlocks'] as $unlock)
+                            <tr>
+                                <td>{{ number_format($unlock['link']['service']['amount']) }}<sup>đ</sup></td>
+                                <td>{{ $unlock['created_at'] }}</td>
+                                <td>{{ $unlock['link']['service']['number'] }}</td>
+                                <td>{{ $unlock['link']['url'] }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
             <h3>Lịch sử lắc xì</h3>
             <div class="table-responsive">
                 <table id="tblShake" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <td>Ngày</td>
-                            <td>Lắc được</td>
+                            <th>Ngày</th>
+                            <th>Lắc được</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -203,6 +227,10 @@
                 "order": []
             });
             
+            $('#tblUnlockLink').DataTable({
+                "order": []
+            });
+
             $('#tblShake').DataTable({
                 "order": []
             });

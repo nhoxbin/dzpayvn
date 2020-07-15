@@ -28,6 +28,7 @@ class HistoryController extends Controller
             'withdraw_bills',
             'buy_bills.package.game',
             'shoot_money.sim',
+            'unlocks.link.service',
             'transfer_bills_sender' => function($q) {
                 $q->with('from', 'to');
             }, 'transfer_bills_receiver' => function($q) {

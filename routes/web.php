@@ -110,6 +110,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     // ref
+    Route::get('/ref', 'RefController@index')->name('ref.index');
+
+    // ref
 	Route::get('/ref', 'RefController@index')->name('ref.index');
 
     // nạp tiền

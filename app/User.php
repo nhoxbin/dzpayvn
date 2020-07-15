@@ -75,7 +75,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Shake')->orderBy('created_at', 'desc');
     }
 
-    public function user_unlock_links() {
+    public function unlocks() {
         return $this->hasMany('App\UserUnlockLink');
     }
 
