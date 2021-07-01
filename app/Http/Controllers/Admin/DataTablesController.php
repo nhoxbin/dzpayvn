@@ -75,9 +75,13 @@ class DataTablesController extends Controller
             $rt_dt[$i]['money'] = number_format($recharge_bills[$i]['money']) . '₫';
             $rt_dt[$i]['payment_method'] = $recharge_bills[$i]['type'];
             if ($rt_dt[$i]['payment_method'] === 'card') {
-                $rt_dt[$i]['card']['sim'] = $recharge_bills[$i]['card']['sim']['name'];
-                $rt_dt[$i]['card']['serial'] = $recharge_bills[$i]['card']['serial'];
-                $rt_dt[$i]['card']['code'] = $recharge_bills[$i]['card']['code'];
+                if (isset($recharge_bills[$i]['card']) && isset($recharge_bills[$i]['card']['sim'])) {
+                    $rt_dt[$i]['card']['sim'] = $recharge_bills[$i]['card']['sim']['name'];
+                    $rt_dt[$i]['card']['serial'] = $recharge_bills[$i]['card']['serial'];
+                    $rt_dt[$i]['card']['code'] = $recharge_bills[$i]['card']['code'];
+                } else {
+                    $rt_dt[$i]['card']['sim'] = $rt_dt[$i]['card']['serial'] = $rt_dt[$i]['card']['code'] = null;
+                }
             } elseif ($rt_dt[$i]['payment_method'] === 'momo') {
                 $rt_dt[$i]['momo']['phone'] = $recharge_bills[$i]['momo']['phone'];
                 $rt_dt[$i]['momo']['code'] = $recharge_bills[$i]['momo']['code'];
@@ -117,14 +121,14 @@ class DataTablesController extends Controller
             }
             $rt_dt[$i]['payment_method'] = $bills[$i]['type'];
             $rt_dt[$i]['money'] = number_format($bills[$i]['money']) . ' đ';
-            
+
             if ($bills[$i]['confirm'] === 0) {
                 $actions = '<div class="btn-group btn-group-sm" role="group" aria-label="action button">
                                 <button type="button" class="btn btn-success" onclick="app.action(\'confirm\', \''.$bills[$i]['id'].'\')">Chấp nhận</button>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#withdrawModal" onclick="app.order_id=\''.$bills[$i]['id'].'\'">Hủy đơn</button>
                                 <button type="button" class="btn btn-danger" onclick="app.deleteSim('.$bills[$i]['id'].')">Xóa</button>
                             </div>';
-                
+
             } elseif ($bills[$i]['confirm'] === 1) {
                 $actions = '<span>Hóa đơn đã được xác nhận!</span>';
             } elseif ($bills[$i]['confirm'] === -1) {
